@@ -11,11 +11,11 @@ class Goyaml < Formula
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "7231fb6d87bfe7997e41a83217bc0a12c42fdadfcf3a2b81c4df77fbfc0899b8"
+    sha256 "66b68f7dbacaa816b774d8a000320787e8dbf0d5fbb7da359f09c4be78f9fd22"
   end
   if OS.linux? && Hardware::CPU.intel?
     url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "29409b108fb24a0c11e12259bdcceaf5ff392183521c21834d1ed08d7be02747"
+    sha256 "97b8c91570ca548eeb48bf794cd1af01274c34d1f02f791b864bd6376ce56c2b"
   end
 
   def install

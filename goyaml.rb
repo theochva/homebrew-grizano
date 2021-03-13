@@ -10,12 +10,12 @@ class Goyaml < Formula
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_darwin_x86_64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "f18dacfebb665f47ff9bc9e09700f6fc8bf5297f402305b3132eacf0cf436c3b"
+    url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "7231fb6d87bfe7997e41a83217bc0a12c42fdadfcf3a2b81c4df77fbfc0899b8"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_linux_x86_64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "b96091e8b6e2129b7f31dffc9718bede434b89a20c9a4cab2f4b3dc9882954f5"
+    url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "29409b108fb24a0c11e12259bdcceaf5ff392183521c21834d1ed08d7be02747"
   end
 
   def install

@@ -6,16 +6,16 @@ require_relative "./download_strategies/custom_download_strategy"
 class Goyaml < Formula
   desc "Utility for performing simple operations on a YAML file."
   homepage "https://github.com/theochva/goyaml"
-  version "0.3.0"
+  version "0.3.1"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/theochva/goyaml/releases/download/v0.3.0/goyaml_0.3.0_darwin_x86_64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "aa752584e5ff21595a15cdd98dcfe16ea035da093e655039869a0edd3851d7b0"
+    url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_darwin_x86_64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 "f18dacfebb665f47ff9bc9e09700f6fc8bf5297f402305b3132eacf0cf436c3b"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/theochva/goyaml/releases/download/v0.3.0/goyaml_0.3.0_linux_x86_64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "dbb7e434854aca0e37133b42e819493424a7dfc80b4477a56e31d78ff29a0411"
+    url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_linux_x86_64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 "b96091e8b6e2129b7f31dffc9718bede434b89a20c9a4cab2f4b3dc9882954f5"
   end
 
   def install

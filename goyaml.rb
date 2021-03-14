@@ -6,16 +6,16 @@ require_relative "./download_strategies/custom_download_strategy"
 class Goyaml < Formula
   desc "Utility for performing simple operations on a YAML file."
   homepage "https://github.com/theochva/goyaml"
-  version "0.3.1"
+  version "0.3.2"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "66b68f7dbacaa816b774d8a000320787e8dbf0d5fbb7da359f09c4be78f9fd22"
+    url "https://github.com/theochva/goyaml/releases/download/v0.3.2/goyaml_0.3.2_darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "5953ada007b2fb510546b368f2d9297fe5ca18b90a30218a08ea9d82009c897b"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/theochva/goyaml/releases/download/v0.3.1/goyaml_0.3.1_linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "97b8c91570ca548eeb48bf794cd1af01274c34d1f02f791b864bd6376ce56c2b"
+    url "https://github.com/theochva/goyaml/releases/download/v0.3.2/goyaml_0.3.2_linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "acacca9dfabcf2f88111266ac296f18000314f59e6df1cc39a5a7513dbb1578d"
   end
 
   def install

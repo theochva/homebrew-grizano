@@ -7,7 +7,7 @@ class Goyaml < Formula
   desc "Utility for performing simple operations on a YAML file."
   homepage "https://github.com/theochva/goyaml"
   version "0.3.4"
-  bottle :unneeded
+  #bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?

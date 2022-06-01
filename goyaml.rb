@@ -6,25 +6,36 @@ require_relative "./download_strategies/custom_download_strategy"
 class Goyaml < Formula
   desc "Utility for performing simple operations on a YAML file."
   homepage "https://github.com/theochva/goyaml"
-  version "0.3.4"
-  #bottle :unneeded
+  version "0.4.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/theochva/goyaml/releases/download/v0.3.4/goyaml_0.3.4_darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "4506c0edd0dd527eb99eaac3bce79966f479f54f7bf47999ae0bf6e4b05527f7"
+    url "https://github.com/theochva/goyaml/releases/download/v0.4.0/goyaml_0.4.0_darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "33be2c971b5e80dc6836373d50c181d722c5122d8d5cfa8e2b87b5fc5af5f6db"
+
+    def install
+      bin.install "goyaml"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Goyaml
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/theochva/goyaml/releases/download/v0.3.4/goyaml_0.3.4_linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "2351ed70174251c8ef42ac216a77912e380ab49b4614b90f58740893a33da55e"
-    end
-  end
+      url "https://github.com/theochva/goyaml/releases/download/v0.4.0/goyaml_0.4.0_linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "6e92ee718248d1fcf15a4d16af139ec0a073ca87c5f1f39369a4b14614ff1663"
 
-  def install
-    bin.install "goyaml"
+      def install
+        bin.install "goyaml"
+      end
+    end
   end
 
   test do

@@ -6,31 +6,39 @@ require_relative "./download_strategies/custom_download_strategy"
 class Goyaml < Formula
   desc "Utility for performing simple operations on a YAML file."
   homepage "https://github.com/theochva/goyaml"
-  version "0.4.0"
+  version "0.4.1"
 
   on_macos do
-    url "https://github.com/theochva/goyaml/releases/download/v0.4.0/goyaml_0.4.0_darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "33be2c971b5e80dc6836373d50c181d722c5122d8d5cfa8e2b87b5fc5af5f6db"
-
-    def install
-      bin.install "goyaml"
-    end
-
     if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the Goyaml
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
+      url "https://github.com/theochva/goyaml/releases/download/v0.4.1/goyaml_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "60762b7267b641b0fd69073d507451bbc2d72873a7a283593337ae282a782adb"
+
+      def install
+        bin.install "goyaml"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/theochva/goyaml/releases/download/v0.4.1/goyaml_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "e0c6d8f3350802daf31cc0f6ba44107c82eba70b1ab5b9d4bcd830ec4fa8a5d5"
+
+      def install
+        bin.install "goyaml"
       end
     end
   end
 
   on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/theochva/goyaml/releases/download/v0.4.1/goyaml_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "32e640f2fb65d500ed41b44cc701be3949481f83a7769b3f35ecf327e40c4b21"
+
+      def install
+        bin.install "goyaml"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/theochva/goyaml/releases/download/v0.4.0/goyaml_0.4.0_linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "6e92ee718248d1fcf15a4d16af139ec0a073ca87c5f1f39369a4b14614ff1663"
+      url "https://github.com/theochva/goyaml/releases/download/v0.4.1/goyaml_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "0a32098b1addd283cd8d16ad730bcdbaa6a5ea856e586187fdbd963eabc95e07"
 
       def install
         bin.install "goyaml"
